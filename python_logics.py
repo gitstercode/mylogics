@@ -61,4 +61,29 @@ config.remove("some_key1", "some_key")
 
 #####
 ## Logic - 3
-##
+## Method Interception
+
+# Methods for Intercepting AClass
+    def __getattr__(self, attr):
+        try:
+            return super(CurrentClass, self).__getattr__(attr)
+        except AttributeError:
+            return self.__get_global_handler(attr)
+
+    def __get_global_handler(self, name):
+        # Do anything that you need to do before simulating the method call
+        handler = self.__global_handler
+        handler.im_func.func_name = name
+        return handler
+
+    def __global_handler(self, *args, **kwargs):
+        # Do something with these arguments
+        try:
+            func = getattr(self.object_of_AClass, self.__global_handler.im_func.func_name)
+            if args:
+                response = func(args)
+            else:
+                response = func()
+            return response
+        except AttributeError:
+            print "%s not found" % self.__global_handler.im_func.func_name
