@@ -95,3 +95,19 @@ config.remove("some_key1", "some_key")
 
 exec_command = subprocess.Popen(cmd_string, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 out, err = exec_command.communicate() # exec_command.wait()
+
+#####
+
+#####
+## Logic 5
+# To Remove a file
+os.remove(line)
+
+# To Remove a directory
+shutil.rmtree(line)
+
+#####
+
+#####
+## Logic - 6
+##
