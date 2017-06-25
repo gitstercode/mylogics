@@ -87,3 +87,11 @@ config.remove("some_key1", "some_key")
             return response
         except AttributeError:
             print "%s not found" % self.__global_handler.im_func.func_name
+#####
+
+#####
+## Logic - 4
+## Logic to execute a shell command within python
+
+exec_command = subprocess.Popen(cmd_string, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+out, err = exec_command.communicate() # exec_command.wait()
