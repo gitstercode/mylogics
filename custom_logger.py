@@ -23,3 +23,6 @@ class CustomFormatter(Formatter):
  server = request.host
  client_ip=request.remote_addr
  app.logger.error('An error occurred', server, client_ip)
+
+if __name__ == '__main__':
+    main()
