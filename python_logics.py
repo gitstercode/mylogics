@@ -2,7 +2,9 @@
 ## Logic- 1
 ## If a new file name is given as input 
 ## Since the file is not yet created in OS. To make perfect validations, the below code is required.
+import os
 
+o = "path/to/new/file.txt"
 o = os.path.abspath(o)                  # Gets Absolute path if given path is relative
         if os.path.isdir(o):            # If given input is a directory
             output = o
@@ -24,6 +26,8 @@ o = os.path.abspath(o)                  # Gets Absolute path if given path is re
 ## Logic -2
 ## If the Given json file throws error or if any python library(click) not accepting JSON calls
 ## Below Class can help in converting JSON to dict and then writing back to file
+
+import ast
 
 class Config(object):
     def __init__(self):
